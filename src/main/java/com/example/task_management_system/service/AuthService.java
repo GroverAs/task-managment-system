@@ -1,9 +1,12 @@
 package com.example.task_management_system.service;
 
+import com.example.task_management_system.web.dto.auth.JwtRequest;
+import com.example.task_management_system.web.dto.auth.JwtResponse;
+
 public interface AuthService {
 
-    JwtResponce login(JwtRequest loginRequest);
+    JwtResponse login(JwtRequest loginRequest);
 
-    JwtResponce refresh(String refreshToken);
+    JwtResponse refresh(String refreshToken);
 
 }
