@@ -5,6 +5,7 @@ import com.example.task_management_system.model.task.Status;
 import com.example.task_management_system.model.user.User;
 import com.example.task_management_system.web.dto.validation.OnCreate;
 import com.example.task_management_system.web.dto.validation.OnUpdate;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -19,7 +20,7 @@ public class TaskDto {
     @Length(max = 255, message = "Title  length must be smaller than 255 symbols", groups = {OnCreate.class, OnUpdate.class})
     private String title;
 
-    @Length(max = 255, message = "Description length must be smaller than 255 symbols", groups = {OnCreate.class, OnUpdate.class})
+    @NotBlank
     private String description;
 
     private Status status;

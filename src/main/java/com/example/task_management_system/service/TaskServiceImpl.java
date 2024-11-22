@@ -3,6 +3,8 @@ package com.example.task_management_system.service;
 import com.example.task_management_system.model.task.Task;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TaskServiceImpl implements TaskService {
 
@@ -12,7 +14,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task getAllByUserName(Long id) {
+    public List<Task> getAllByUserId(Long id) {
         return null;
     }
 
@@ -22,7 +24,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task create(Task task) {
+    public Task create(Task task, Long id) {
         return null;
     }
 
