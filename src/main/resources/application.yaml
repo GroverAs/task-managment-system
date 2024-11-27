@@ -9,6 +9,12 @@ spring:
       mode: always
       continue-on-error: false
 #      data-locations: classpath:populateDB.sql
+security:
+  jwt:
+    secret: dXpma2xVVUpVSktramZsd2pra3NkZmhrc2pkZG5rempzZGZqamtsc2Jka2RidmR2YnpkZ3hkZmJ4aHNkZ2RmYmhzZmJzZGdzZGZic2mI=
+    access: 3600000
+    refresh: 2592000000
+
 
 
 
