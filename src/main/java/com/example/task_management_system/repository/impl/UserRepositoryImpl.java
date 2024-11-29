@@ -1,5 +1,6 @@
 package com.example.task_management_system.repository.impl;
 
+import com.example.task_management_system.model.user.Role;
 import com.example.task_management_system.model.user.User;
 import com.example.task_management_system.repository.UserRepository;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<User> findUserName(String username) {
+    public Optional<User> findByUserName(String username) {
         return Optional.empty();
     }
 
@@ -34,8 +35,13 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void insertUserRole(Long userId, Long taskId) {
+    public void insertUserRole(Long userId, Role role) {
 
+    }
+
+    @Override
+    public boolean isTaskOwner(Long userId, Long taskId) {
+        return false;
     }
 
 }

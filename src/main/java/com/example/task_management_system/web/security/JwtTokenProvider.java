@@ -90,9 +90,7 @@ public class JwtTokenProvider {
         return jwtResponse;
     }
 
-    public boolean isValid(
-            final String token
-    ) {
+    public boolean isValid(final String token) {
         Jws<Claims> claims = Jwts
                 .parser()
                 .verifyWith(key)
@@ -103,9 +101,7 @@ public class JwtTokenProvider {
                 .after(new Date());
     }
 
-    private String getId(
-            final String token
-    ) {
+    private String getId(final String token) {
         return Jwts
                 .parser()
                 .verifyWith(key)
@@ -115,9 +111,7 @@ public class JwtTokenProvider {
                 .get("id", String.class);
     }
 
-    private String getUsername(
-            final String token
-    ) {
+    private String getUsername(final String token) {
         return Jwts
                 .parser()
                 .verifyWith(key)
