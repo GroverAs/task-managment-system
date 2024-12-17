@@ -4,6 +4,7 @@ import com.example.task_management_system.model.Comment;
 import com.example.task_management_system.model.user.User;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 @Data
@@ -24,4 +25,6 @@ public class Task {
     private User assignee;
 
     private List<Comment> comments = new ArrayList<>();
+
+    private LocalDateTime expirationDate;
 }
