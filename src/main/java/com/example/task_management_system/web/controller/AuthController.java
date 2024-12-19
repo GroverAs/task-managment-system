@@ -1,4 +1,4 @@
-package com.example.task_management_system.controller;
+package com.example.task_management_system.web.controller;
 
 import com.example.task_management_system.model.user.User;
 import com.example.task_management_system.service.AuthService;

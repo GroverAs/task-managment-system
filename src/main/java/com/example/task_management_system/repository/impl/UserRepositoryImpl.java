@@ -62,7 +62,7 @@ public class UserRepositoryImpl implements UserRepository {
             WHERE id = ?""";
 
     private final String INSERT_USER_ROLE = """
-            INSERT INTO users_role (user_id, role)
+            INSERT INTO users_roles (user_id, role)
             VALUES (?, ?)""";
 
     private final String IS_TASK_OWNER = """

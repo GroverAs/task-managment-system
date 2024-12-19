@@ -3,6 +3,7 @@ package com.example.task_management_system.config;
 import com.example.task_management_system.web.security.JwtTokenFilter;
 import com.example.task_management_system.web.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,32 +40,33 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(final HttpSecurity httpSecurity) throws Exception {
+    @SneakyThrows
+    public SecurityFilterChain filterChain(
+            final HttpSecurity httpSecurity) {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors()
-                .and()
-                .httpBasic().disable()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .exceptionHandling()
-                .authenticationEntryPoint(((request, response, authException) -> {
-                    response.setStatus(HttpStatus.UNAUTHORIZED.value());
-                    response.getWriter().write("Unauthorized.");
-                }))
-                .accessDeniedHandler(((request, response, accessDeniedException) -> {
-                    response.setStatus(HttpStatus.FORBIDDEN.value());
-                    response.getWriter().write("Unauthorized.");
-                }))
-                .and()
-                .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .anonymous().disable()
-                .addFilterBefore(new JwtTokenFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);
-
+                .cors(AbstractHttpConfigurer::disable)
+                .httpBasic(AbstractHttpConfigurer::disable)
+                .sessionManagement(sessionManagement ->
+                        sessionManagement
+                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(configurer ->
+                        configurer.authenticationEntryPoint(
+                                        (request, response, exception) -> {
+                                            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+                                            response.getWriter().write("Unauthorized.");
+                                        })
+                                .accessDeniedHandler((request, response, exception) -> {
+                                            response.setStatus(HttpStatus.FORBIDDEN.value());
+                                            response.getWriter().write("Unauthorized.");
+                                        }))
+                .authorizeHttpRequests(configurer ->
+                        configurer.requestMatchers("/api/v1/auth/**")
+                                .permitAll()
+                                .anyRequest().authenticated())
+                .anonymous(AbstractHttpConfigurer::disable)
+                .addFilterBefore(new JwtTokenFilter(tokenProvider),
+                        UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 }
