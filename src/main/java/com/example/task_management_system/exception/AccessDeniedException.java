@@ -1,4 +1,4 @@
-package com.example.task_management_system.exeption;
+package com.example.task_management_system.exception;
 
 public class AccessDeniedException extends RuntimeException {
 

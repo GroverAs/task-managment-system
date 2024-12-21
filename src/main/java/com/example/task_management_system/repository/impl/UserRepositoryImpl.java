@@ -1,6 +1,6 @@
 package com.example.task_management_system.repository.impl;
 
-import com.example.task_management_system.exeption.ResourceMappingException;
+import com.example.task_management_system.exception.ResourceMappingException;
 import com.example.task_management_system.model.user.Role;
 import com.example.task_management_system.model.user.User;
 import com.example.task_management_system.repository.DataSourceConfig;
@@ -13,7 +13,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.Optional;
 
 @Repository

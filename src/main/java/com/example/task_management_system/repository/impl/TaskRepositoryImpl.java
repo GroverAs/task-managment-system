@@ -1,12 +1,10 @@
 package com.example.task_management_system.repository.impl;
 
-import com.example.task_management_system.exeption.ResourceMappingException;
+import com.example.task_management_system.exception.ResourceMappingException;
 import com.example.task_management_system.model.task.Task;
 import com.example.task_management_system.repository.DataSourceConfig;
 import com.example.task_management_system.repository.TaskRepository;
-import com.example.task_management_system.web.mappers.TaskMapper;
 import com.example.task_management_system.web.mappers.TaskRowMapper;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

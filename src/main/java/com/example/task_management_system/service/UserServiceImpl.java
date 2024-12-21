@@ -1,6 +1,6 @@
 package com.example.task_management_system.service;
 
-import com.example.task_management_system.exeption.ResourceNotFoundException;
+import com.example.task_management_system.exception.ResourceNotFoundException;
 import com.example.task_management_system.model.user.Role;
 import com.example.task_management_system.model.user.User;
 import com.example.task_management_system.repository.UserRepository;

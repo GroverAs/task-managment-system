@@ -1,6 +1,6 @@
 package com.example.task_management_system.web.security;
 
-import com.example.task_management_system.exeption.AccessDeniedException;
+import com.example.task_management_system.exception.AccessDeniedException;
 import com.example.task_management_system.model.user.Role;
 import com.example.task_management_system.model.user.User;
 import com.example.task_management_system.service.UserService;
