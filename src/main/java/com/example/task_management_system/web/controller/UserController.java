@@ -9,6 +9,7 @@ import com.example.task_management_system.web.dto.user.UserDto;
 import com.example.task_management_system.web.dto.validation.OnUpdate;
 import com.example.task_management_system.web.mappers.TaskMapper;
 import com.example.task_management_system.web.mappers.UserMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.util.List;
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 @Validated
+@Tag(name = "User Controller", description = "User API")
 public class UserController {
 
     private final UserService userService;
