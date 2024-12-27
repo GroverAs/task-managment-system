@@ -6,13 +6,13 @@ spring:
     driver-class-name: org.postgresql.Driver
   sql:
     init:
-      mode: never
       continue-on-error: false
+      mode: never
 #      data-locations: classpath:populateDB.sql
   liquibase:
-    change-log: classpath:liquibase/db.changelog.yaml
     enabled: true
     default-schema: tasklist
+    change-log: classpath:liquibase/db.changelog.yaml
 security:
   jwt:
     secret: dXpma2xVVUpVSktramZsd2pra3NkZmhrc2pkZG5rempzZGZqamtsc2Jka2RidmR2YnpkZ3hkZmJ4aHNkZ2RmYmhzZmJzZGdzZGZic2mI=
